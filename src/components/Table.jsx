@@ -1,5 +1,5 @@
 import React from 'react';
-import PlanetContext from '../context/planetContext';
+import PlanetContext from '../context/PlanetContext';
 import Header from './Header';
 
 export default function Table() {
@@ -8,18 +8,15 @@ export default function Table() {
       {
         (value) => (
           <table>
-            {
-              console.log(value)
-            }
             <Header />
-            {/* {
+            {
               value.map((planet) => (
                 <tr key={ planet.name }>
                   <td>{planet.name}</td>
                   <td>{planet.orbit}</td>
                 </tr>
               ))
-            } */}
+            }
           </table>
         )
       }

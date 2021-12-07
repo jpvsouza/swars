@@ -1,19 +1,13 @@
 import React from 'react';
 import './App.css';
 import Table from './components/Table';
-import PlanetContext from './context/planetContext';
-import searchPlanets from './services/searchData';
+import PlanetProvider from './context/PlanetProvider';
 
 function App() {
-  // const planetData = async () => {
-  //   const data = await searchPlanets();
-  //   return data;
-  // };
-
   return (
-    <PlanetContext.Provider value={ searchPlanets() }>
+    <PlanetProvider>
       <Table />
-    </PlanetContext.Provider>
+    </PlanetProvider>
   );
 }
 
