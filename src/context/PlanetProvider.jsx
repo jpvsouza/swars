@@ -1,36 +1,29 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import searchPlanets from '../services/searchData';
-import PlanetContext from './PlanetContext';
+import star from './PlanetContext';
 
-class PlanetProvider extends Component {
-  constructor() {
-    super();
+function PlanetProvider({ children }) {
+  const [planets, setPlanets] = useState([]);
+  const [filterByName, setFilterByName] = useState('');
 
-    this.state = {
-      planetas: [],
-    };
-  }
+  useEffect(() => {
+    searchPlanets().then((data) => setPlanets(data.results));
+  }, []);
 
-  componentDidMount() {
-    searchPlanets().then((data) => {
-      this.setState({
-        planetas: data.results,
-      });
-    });
-  }
+  const context = {
+    planets,
+    filterByName,
+    setFilterByName,
+  };
 
-  render() {
-    const { children } = this.props;
-    const { planetas } = this.state;
-    return (
-      <PlanetContext.Provider value={ planetas }>
-        {
-          children
-        }
-      </PlanetContext.Provider>
-    );
-  }
+  return (
+    <star.Provider value={ context }>
+      {
+        children
+      }
+    </star.Provider>
+  );
 }
 
 PlanetProvider.propTypes = {
