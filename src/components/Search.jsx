@@ -1,12 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import PlanetContext from '../context/PlanetContext';
 
 function Search() {
-  const [name, setName] = useState('');
-  const { setFilterByName } = useContext(PlanetContext);
+  const { filterByName, setFilterByName } = useContext(PlanetContext);
 
   function handleChange({ target }) {
-    setName(target.value);
     setFilterByName(target.value);
   }
 
@@ -14,8 +12,7 @@ function Search() {
     <form>
       <input
         data-testid="name-filter"
-        id="name"
-        value={ name }
+        value={ filterByName }
         onChange={ handleChange }
       />
     </form>

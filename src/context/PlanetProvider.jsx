@@ -6,6 +6,7 @@ import star from './PlanetContext';
 function PlanetProvider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [filterByName, setFilterByName] = useState('');
+  const [filterByNumericValues, setFilterByNumericValues] = useState([{}]);
 
   useEffect(() => {
     searchPlanets().then((data) => setPlanets(data.results));
@@ -15,6 +16,8 @@ function PlanetProvider({ children }) {
     planets,
     filterByName,
     setFilterByName,
+    filterByNumericValues,
+    setFilterByNumericValues,
   };
 
   return (
