@@ -25,6 +25,7 @@ function NumericSearch() {
   };
 
   function handleClick() {
+    console.log(filterByNumericValues);
     // if (filterByNumericValues[0].column === undefined) {
     //   setFilterByNumericValues(objeto);
     // } else setFilterByNumericValues([...filterByNumericValues, objeto]);
