@@ -8,23 +8,24 @@ export default function Table() {
 
   switch (filterByNumericValues[0].comparison) {
   case 'maior que':
-    console.log('maior que');
     filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && planet[filterByNumericValues[0].column] > filterByNumericValues[0].quantity);
+      && Number(planet[filterByNumericValues[0].column])
+      > Number(filterByNumericValues[0].quantity));
     break;
   case 'menor que':
     filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && planet[filterByNumericValues[0].column] < filterByNumericValues[0].quantity);
+      && Number(planet[filterByNumericValues[0].column])
+      < Number(filterByNumericValues[0].quantity));
     break;
   case 'igual a':
     filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && planet[filterByNumericValues[0].column] === filterByNumericValues[0].quantity);
+      && Number(planet[filterByNumericValues[0].column])
+      === Number(filterByNumericValues[0].quantity));
     break;
   default:
     console.log('nenhum selecionado');
   }
 
-  console.log(filtPlanets);
   return (
     <table>
       <Header />

@@ -55,6 +55,7 @@ function NumericSearch() {
         data-testid="value-filter"
         type="number"
         onChange={ handleQuantity }
+        value={ objeto.quantity }
       />
       <button
         data-testid="button-filter"
