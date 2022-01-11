@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import PlanetContext from '../context/PlanetContext';
 
 function NumericSearch() {
-  const { filterByNumericValues, setFilterByNumericValues } = useContext(PlanetContext);
+  const { setFilterByNumericValues } = useContext(PlanetContext);
 
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
@@ -25,12 +25,15 @@ function NumericSearch() {
   };
 
   function handleClick() {
-    console.log(filterByNumericValues);
     // if (filterByNumericValues[0].column === undefined) {
     //   setFilterByNumericValues(objeto);
     // } else setFilterByNumericValues([...filterByNumericValues, objeto]);
+    // setFilterByNumericValues([...filterByNumericValues, objeto]);
     setFilterByNumericValues([objeto]);
   }
+
+  const options = ['population', 'orbital_period',
+    'diameter', 'rotation_period', 'surface_water'];
 
   return (
     <form>
@@ -38,11 +41,10 @@ function NumericSearch() {
         data-testid="column-filter"
         onChange={ handleColumn }
       >
-        <option>population</option>
-        <option>orbital_period</option>
-        <option>diameter</option>
-        <option>rotation_period</option>
-        <option>surface_water</option>
+        {
+          options.map((opcao) => <option key={ opcao }>{opcao}</option>)
+        }
+
       </select>
       <select
         data-testid="comparison-filter"
