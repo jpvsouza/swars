@@ -6,7 +6,7 @@ import star from './PlanetContext';
 function PlanetProvider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [filterByName, setFilterByName] = useState('');
-  const [filterByNumericValues, setFilterByNumericValues] = useState([{}]);
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   const [order, setOrder] = useState({
     column: 'name',
     sort: 'ASC',

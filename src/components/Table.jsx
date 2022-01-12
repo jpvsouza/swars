@@ -6,24 +6,29 @@ export default function Table() {
   const { planets, filterByName, filterByNumericValues } = useContext(PlanetContext);
   let filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName));
 
-  switch (filterByNumericValues[0].comparison) {
-  case 'maior que':
-    filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && Number(planet[filterByNumericValues[0].column])
-      > Number(filterByNumericValues[0].quantity));
-    break;
-  case 'menor que':
-    filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && Number(planet[filterByNumericValues[0].column])
-      < Number(filterByNumericValues[0].quantity));
-    break;
-  case 'igual a':
-    filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName) === true
-      && Number(planet[filterByNumericValues[0].column])
-      === Number(filterByNumericValues[0].quantity));
-    break;
-  default:
-    console.log('nenhum filtro numérico selecionado');
+  if (filterByNumericValues.length > 0) {
+    switch (filterByNumericValues[0].comparison) {
+    case 'maior que':
+      filtPlanets = planets.filter((planet) => (planet.name)
+        .includes(filterByName) === true
+        && Number(planet[filterByNumericValues[0].column])
+        > Number(filterByNumericValues[0].quantity));
+      break;
+    case 'menor que':
+      filtPlanets = planets.filter((planet) => (planet.name)
+        .includes(filterByName) === true
+        && Number(planet[filterByNumericValues[0].column])
+        < Number(filterByNumericValues[0].quantity));
+      break;
+    case 'igual a':
+      filtPlanets = planets.filter((planet) => (planet.name)
+        .includes(filterByName) === true
+        && Number(planet[filterByNumericValues[0].column])
+        === Number(filterByNumericValues[0].quantity));
+      break;
+    default:
+      console.log('nenhum filtro numérico selecionado');
+    }
   }
 
   return (
