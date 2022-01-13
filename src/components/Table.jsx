@@ -7,28 +7,31 @@ export default function Table() {
   let filtPlanets = planets.filter((planet) => (planet.name).includes(filterByName));
 
   if (filterByNumericValues.length > 0) {
-    switch (filterByNumericValues[0].comparison) {
-    case 'maior que':
-      filtPlanets = planets.filter((planet) => (planet.name)
-        .includes(filterByName) === true
-        && Number(planet[filterByNumericValues[0].column])
-        > Number(filterByNumericValues[0].quantity));
-      break;
-    case 'menor que':
-      filtPlanets = planets.filter((planet) => (planet.name)
-        .includes(filterByName) === true
-        && Number(planet[filterByNumericValues[0].column])
-        < Number(filterByNumericValues[0].quantity));
-      break;
-    case 'igual a':
-      filtPlanets = planets.filter((planet) => (planet.name)
-        .includes(filterByName) === true
-        && Number(planet[filterByNumericValues[0].column])
-        === Number(filterByNumericValues[0].quantity));
-      break;
-    default:
-      console.log('nenhum filtro numérico selecionado');
-    }
+    filterByNumericValues.map((filtro) => {
+      switch (filtro.comparison) {
+      case 'maior que':
+        filtPlanets = planets.filter((planet) => (planet.name)
+          .includes(filterByName) === true
+          && Number(planet[filtro.column])
+          > Number(filtro.quantity));
+        break;
+      case 'menor que':
+        filtPlanets = planets.filter((planet) => (planet.name)
+          .includes(filterByName) === true
+          && Number(planet[filtro.column])
+          < Number(filtro.quantity));
+        break;
+      case 'igual a':
+        filtPlanets = planets.filter((planet) => (planet.name)
+          .includes(filterByName) === true
+          && Number(planet[filtro.column])
+          === Number(filtro.quantity));
+        break;
+      default:
+        console.log('nenhum filtro numérico selecionado');
+      }
+      return null;
+    });
   }
 
   return (

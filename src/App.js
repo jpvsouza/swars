@@ -5,6 +5,7 @@ import Table from './components/Table';
 import NumericSearch from './components/NumericSearch';
 import PlanetProvider from './context/PlanetProvider';
 import Sort from './components/Sort';
+import Filters from './components/Filters';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Search />
       <NumericSearch />
       <Sort />
+      <Filters />
       <Table />
     </PlanetProvider>
   );
