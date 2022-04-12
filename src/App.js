@@ -10,6 +10,7 @@ import Filters from './components/Filters';
 function App() {
   return (
     <PlanetProvider>
+      <p>Carai de asa</p>
       <Search />
       <NumericSearch />
       <Sort />
