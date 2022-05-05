@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+form {
+  text-align: center;
+  margin: 10px;
+}
+
+body {
+  background-color: black;
+  padding: 10px;
+  color: antiquewhite;
+}
+
+tr {
+ background-color: rgb(3, 73, 73);
+}
+
+td {
+  background-color: rgb(34, 30, 30);
+}
+
+#root {
+  text-align: center;
+}

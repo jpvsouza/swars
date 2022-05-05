@@ -9,7 +9,7 @@ function Search() {
   }
 
   return (
-    <form>
+    <form className='search'>
       <input
         data-testid="name-filter"
         value={ filterByName }
